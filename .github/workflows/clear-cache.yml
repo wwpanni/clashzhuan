@@ -1,19 +1,30 @@
-name: Auto Clear Cache (GitHub Pages)
+name: Clear Cache Automatically
 
-on:
+于:
   push:
-    branches:
-      - main  # 你提交代码的分支
+    分支:
+      - main  # 你希望触发的分支
 
 jobs:
-  deploy:
+  purge_cache:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Request GitHub Pages Deployment
+      - name: Trigger GitHub Pages Rebuild
         run: |
           curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/${{ github.repository }}/pages/builds
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/${{ github.repository }}/pages/builds
+
+      - name: Clear Cached Files
+        run: |
+          FILES=(
+            "script.js"
+            "style.css"
+            "index.html"
+          )
+          for file in "${FILES[@]}"; do
+            curl -X PURGE "https://raw.githubusercontent.com/${{ github.repository }}/main/$file" -H "Cache-Control: no-cache"
+          done
