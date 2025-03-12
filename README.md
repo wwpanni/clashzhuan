@@ -1,5 +1,5 @@
 # clashzhuan
-订阅转换服务地址
+公共订阅转换服务地址
 
 https://my.subcloud.xyz/
 
