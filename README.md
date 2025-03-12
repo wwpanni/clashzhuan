@@ -1,4 +1,6 @@
 # clashzhuan
+更改文件后 改文件名立即生效
+
 公共订阅转换服务地址
 
 https://my.subcloud.xyz/
