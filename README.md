@@ -10,5 +10,6 @@ https://dingyue.junjie123.top/
 https://git.junjie123.top/https://github.com/wwpanni/clashzhuan/blob/main/clash.ini
 
 
-![image](https://github.com/user-attachments/assets/774eff4a-af38-49c4-a17e-35bb02ef67a1)
+![image](https://github.com/user-attachments/assets/6a633a0d-d5be-4aff-8703-cea20cd9e9dc)
+
 
