@@ -1,0 +1,19 @@
+name: Auto Clear Cache (GitHub Pages)
+
+on:
+  push:
+    branches:
+      - main  # 你提交代码的分支
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Request GitHub Pages Deployment
+        run: |
+          curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/${{ github.repository }}/pages/builds
